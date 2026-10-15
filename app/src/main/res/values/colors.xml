@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="termix_bg">#121517</color>
+    <color name="termix_surface">#1A1D20</color>
+    <color name="termix_surface_variant">#24282C</color>
+    <color name="termix_green_primary">#00E676</color>
+    <color name="termix_green_dark">#00A352</color>
+    <color name="termix_green_light">#69F0AE</color>
+    <color name="termix_accent">#0DF2A5</color>
+    <color name="termix_text_primary">#E6EDF3</color>
+    <color name="termix_text_secondary">#8B949E</color>
+    <color name="termix_text_green">#33FF33</color>
+    <color name="termix_text_dim">#6E7681</color>
+    <color name="termix_prompt_normal">#00E676</color>
+    <color name="termix_prompt_root">#FF5252</color>
+    <color name="termix_key_bg">#2A2F35</color>
+    <color name="termix_key_active">#00E676</color>
+    <color name="termix_border">#30363D</color>
+    <color name="termix_error">#FF5555</color>
+    <color name="termix_warning">#FFB86C</color>
+    <color name="termix_path_exists">#00E676</color>
+    <color name="termix_path_missing">#8B949E</color>
+</resources>

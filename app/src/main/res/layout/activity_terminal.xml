@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/termix_bg"
+    android:fitsSystemWindows="true">
+
+    <!-- Top App Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/termix_surface"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_termix_logo"
+            android:contentDescription="Termix Logo" />
+
+        <TextView
+            android:id="@+id/tv_app_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Termix"
+            android:textColor="@color/termix_green_primary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp" />
+
+        <!-- Session Selector Spinner -->
+        <Spinner
+            android:id="@+id/spn_sessions"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_key_btn"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:spinnerMode="dropdown" />
+
+        <ImageButton
+            android:id="@+id/btn_new_session"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_add"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="New Session"
+            android:padding="8dp" />
+
+        <ImageButton
+            android:id="@+id/btn_close_session"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_close"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Close Current Session"
+            android:padding="8dp" />
+
+        <ImageButton
+            android:id="@+id/btn_settings"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_settings"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Environment and Settings"
+            android:padding="8dp" />
+    </LinearLayout>
+
+    <!-- Status & Working Directory Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/termix_surface_variant"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp">
+
+        <!-- Root / Normal Mode Badge -->
+        <TextView
+            android:id="@+id/tv_root_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$ NORMAL"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:typeface="monospace"
+            android:background="@drawable/bg_badge_normal"
+            android:textColor="@color/termix_green_primary"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_folder"
+            android:layout_marginStart="10dp"
+            android:contentDescription="Current Directory" />
+
+        <TextView
+            android:id="@+id/tv_cwd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="/data/data/com.csoftware.termix/files/home"
+            android:textColor="@color/termix_text_secondary"
+            android:textSize="12sp"
+            android:typeface="monospace"
+            android:singleLine="true"
+            android:ellipsize="middle"
+            android:layout_marginStart="6dp" />
+
+        <TextView
+            android:id="@+id/tv_status_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="READY"
+            android:textColor="@color/termix_green_light"
+            android:textSize="10sp"
+            android:typeface="monospace"
+            android:layout_marginStart="6dp" />
+    </LinearLayout>
+
+    <!-- Terminal Output Panel -->
+    <ScrollView
+        android:id="@+id/scroll_terminal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/termix_bg"
+        android:fillViewport="true"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/tv_terminal_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/termix_text_primary"
+            android:textSize="13sp"
+            android:typeface="monospace"
+            android:lineSpacingExtra="3dp"
+            android:textIsSelectable="true"
+            android:gravity="top|start" />
+    </ScrollView>
+
+    <!-- Quick Virtual Keys Toolbar -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/termix_surface"
+        android:scrollbars="none"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <Button
+                android:id="@+id/btn_key_ctrl_c"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:minHeight="34dp"
+                android:minWidth="56dp"
+                android:text="Ctrl+C"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                android:textColor="@color/termix_error"
+                android:background="@drawable/bg_key_btn"
+                android:layout_margin="3dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_key_tab"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:minHeight="34dp"
+                android:minWidth="50dp"
+                android:text="Tab"
+                android:textSize="12sp"
+                android:typeface="monospace"
+                android:textColor="@color/termix_text_primary"
+                android:background="@drawable/bg_key_btn"
+                android:layout_margin="3dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_key_esc"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:minHeight="34dp"
+                android:minWidth="48dp"
+                android:text="Esc"
+                android:textSize="12sp"
+                android:typeface="monospace"
+                android:textColor="@color/termix_text_primary"
+                android:background="@drawable/bg_key_btn"
+                android:layout_margin="3dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_key_up"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:minHeight="34dp"
+                android:minWidth="44dp"
+                android:text="↑"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/termix_green_primary"
+                android:background="@drawable/bg_key_btn"
+                android:layout_margin="3dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_key_down"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:minHeight="34dp"
+                android:minWidth="44dp"
+                android:text="↓"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/termix_green_primary"
+                android:background="@drawable/bg_key_btn"
+                android:layout_margin="3dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_key_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:minHeight="34dp"
+                android:minWidth="54dp"
+                android:text="Clear"
+                android:textSize="12sp"
+                android:typeface="monospace"
+                android:textColor="@color/termix_text_primary"
+                android:background="@drawable/bg_key_btn"
+                android:layout_margin="3dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_key_pipe"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:minHeight="34dp"
+                android:minWidth="40dp"
+                android:text="|"
+                android:textSize="13sp"
+                android:typeface="monospace"
+                android:textColor="@color/termix_text_primary"
+                android:background="@drawable/bg_key_btn"
+                android:layout_margin="3dp"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp" />
+
+            <Button
+                android:id="@+id/btn_key_slash"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:minHeight="34dp"
+                android:minWidth="40dp"
+                android:text="/"
+                android:textSize="13sp"
+                android:typeface="monospace"
+                android:textColor="@color/termix_text_primary"
+                android:background="@drawable/bg_key_btn"
+                android:layout_margin="3dp"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp" />
+
+            <Button
+                android:id="@+id/btn_key_dash"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:minHeight="34dp"
+                android:minWidth="40dp"
+                android:text="-"
+                android:textSize="13sp"
+                android:typeface="monospace"
+                android:textColor="@color/termix_text_primary"
+                android:background="@drawable/bg_key_btn"
+                android:layout_margin="3dp"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp" />
+
+            <Button
+                android:id="@+id/btn_key_tilde"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:minHeight="34dp"
+                android:minWidth="40dp"
+                android:text="~"
+                android:textSize="13sp"
+                android:typeface="monospace"
+                android:textColor="@color/termix_text_primary"
+                android:background="@drawable/bg_key_btn"
+                android:layout_margin="3dp"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp" />
+
+            <Button
+                android:id="@+id/btn_key_cd_home"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:minHeight="34dp"
+                android:minWidth="60dp"
+                android:text="cd ~"
+                android:textSize="12sp"
+                android:typeface="monospace"
+                android:textColor="@color/termix_green_light"
+                android:background="@drawable/bg_key_btn"
+                android:layout_margin="3dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Command Input Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/termix_surface"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <TextView
+            android:id="@+id/tv_input_prompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$ "
+            android:textColor="@color/termix_prompt_normal"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:typeface="monospace"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp" />
+
+        <EditText
+            android:id="@+id/et_command_input"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_input_box"
+            android:hint="@string/input_hint"
+            android:textColorHint="@color/termix_text_dim"
+            android:textColor="@color/termix_text_primary"
+            android:textSize="14sp"
+            android:typeface="monospace"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:imeOptions="actionGo"
+            android:inputType="textNoSuggestions|textVisiblePassword"
+            android:singleLine="true" />
+
+        <ImageButton
+            android:id="@+id/btn_run_command"
+            android:layout_width="44dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="6dp"
+            android:src="@drawable/ic_run"
+            android:background="@drawable/bg_run_btn"
+            android:contentDescription="@string/action_execute"
+            android:padding="8dp" />
+    </LinearLayout>
+
+</LinearLayout>

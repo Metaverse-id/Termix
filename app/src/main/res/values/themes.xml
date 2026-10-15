@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Termix" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/termix_bg</item>
+        <item name="android:colorBackground">@color/termix_bg</item>
+        <item name="colorPrimary">@color/termix_green_primary</item>
+        <item name="colorPrimaryDark">@color/termix_bg</item>
+        <item name="colorAccent">@color/termix_green_primary</item>
+        <item name="android:textColorPrimary">@color/termix_text_primary</item>
+        <item name="android:textColorSecondary">@color/termix_text_secondary</item>
+        <item name="android:statusBarColor">@color/termix_bg</item>
+        <item name="android:navigationBarColor">@color/termix_bg</item>
+    </style>
+
+    <!-- Alias for backward compatibility if any reference uses Theme.MyApplication -->
+    <style name="Theme.MyApplication" parent="Theme.Termix" />
+</resources>

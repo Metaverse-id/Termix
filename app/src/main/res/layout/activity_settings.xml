@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/termix_bg"
+    android:fitsSystemWindows="true">
+
+    <!-- Settings Top Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/termix_surface"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp">
+
+        <ImageButton
+            android:id="@+id/btn_settings_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_close"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Close Settings"
+            android:padding="8dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Environment &amp; PATH"
+            android:textColor="@color/termix_green_primary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp" />
+
+        <Button
+            android:id="@+id/btn_settings_save"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:text="Save"
+            android:textColor="#121517"
+            android:textStyle="bold"
+            android:background="@drawable/bg_run_btn"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Privilege & Runtime Status Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card"
+                android:padding="14dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="System &amp; Privilege Status"
+                    android:textColor="@color/termix_green_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:text="Root Availability:"
+                        android:textColor="@color/termix_text_secondary"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_settings_root_available"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Checking..."
+                        android:textColor="@color/termix_text_primary"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp">
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:text="Active Privilege:"
+                        android:textColor="@color/termix_text_secondary"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_settings_active_privilege"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Unprivileged ($)"
+                        android:textColor="@color/termix_green_light"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp">
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:text="Shell Binary:"
+                        android:textColor="@color/termix_text_secondary"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_settings_shell_bin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="/system/bin/sh"
+                        android:textColor="@color/termix_text_primary"
+                        android:textSize="12sp"
+                        android:typeface="monospace" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_settings_request_root"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Configure Root Mode"
+                    android:textSize="12sp"
+                    android:textColor="@color/termix_text_primary"
+                    android:background="@drawable/bg_key_btn"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp" />
+            </LinearLayout>
+
+            <!-- Environment Variables Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card"
+                android:padding="14dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Termix Environment Variables"
+                    android:textColor="@color/termix_green_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="These variables are exported to all Termix sessions and child processes. App-private directories are managed by Termix."
+                    android:textColor="@color/termix_text_dim"
+                    android:textSize="11sp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- HOME -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HOME"
+                    android:textColor="@color/termix_text_primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:typeface="monospace" />
+
+                <EditText
+                    android:id="@+id/et_env_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_input_box"
+                    android:textColor="@color/termix_text_primary"
+                    android:textSize="13sp"
+                    android:typeface="monospace"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="10dp"
+                    android:singleLine="true" />
+
+                <!-- ENV -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ENV (Startup Script File)"
+                    android:textColor="@color/termix_text_primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:typeface="monospace" />
+
+                <EditText
+                    android:id="@+id/et_env_env"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_input_box"
+                    android:textColor="@color/termix_text_primary"
+                    android:textSize="13sp"
+                    android:typeface="monospace"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="10dp"
+                    android:singleLine="true" />
+
+                <!-- USER -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="USER"
+                    android:textColor="@color/termix_text_primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:typeface="monospace" />
+
+                <EditText
+                    android:id="@+id/et_env_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_input_box"
+                    android:textColor="@color/termix_text_primary"
+                    android:textSize="13sp"
+                    android:typeface="monospace"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="10dp"
+                    android:singleLine="true" />
+
+                <!-- PATH -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PATH (Executable Search Order)"
+                    android:textColor="@color/termix_text_primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:typeface="monospace" />
+
+                <EditText
+                    android:id="@+id/et_env_path"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:background="@drawable/bg_input_box"
+                    android:textColor="@color/termix_text_primary"
+                    android:textSize="12sp"
+                    android:typeface="monospace"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tv_path_inspector"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/termix_text_secondary"
+                    android:textSize="11sp"
+                    android:typeface="monospace"
+                    android:lineSpacingExtra="2dp"
+                    android:background="@color/termix_surface_variant"
+                    android:padding="8dp" />
+            </LinearLayout>
+
+            <!-- Reset & Utility Actions -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end"
+                android:layout_marginBottom="24dp">
+
+                <Button
+                    android:id="@+id/btn_reset_defaults"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:text="Reset to Termix Defaults"
+                    android:textSize="12sp"
+                    android:textColor="@color/termix_error"
+                    android:background="@drawable/bg_key_btn"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

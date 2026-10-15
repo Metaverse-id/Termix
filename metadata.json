@@ -1,0 +1,6 @@
+{
+  "name": "Termix",
+  "description": "Native Android terminal emulator with persistent environment, configurable PATH, session management, and optional root support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

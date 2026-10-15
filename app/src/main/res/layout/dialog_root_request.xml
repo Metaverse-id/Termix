@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_card"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="12dp">
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_shield"
+            android:contentDescription="Root Access Shield" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Root Access Detected"
+            android:textColor="@color/termix_green_primary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Termix detected a potential root management binary (su) on your device."
+        android:textColor="@color/termix_text_primary"
+        android:textSize="14sp"
+        android:lineSpacingExtra="2dp"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Root access is strictly optional. Termix is fully functional without root and never requires elevated privileges for standard shell operations.\n\nIf you grant root, Termix will start an explicitly labeled root session (#). You can change this setting at any time in Environment Settings."
+        android:textColor="@color/termix_text_secondary"
+        android:textSize="13sp"
+        android:lineSpacingExtra="2dp"
+        android:layout_marginBottom="16dp" />
+
+    <CheckBox
+        android:id="@+id/cb_remember_root_choice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remember my choice and don\'t ask again"
+        android:textColor="@color/termix_text_dim"
+        android:textSize="12sp"
+        android:checked="true"
+        android:layout_marginBottom="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/btn_dialog_root_continue_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:text="Continue Without Root"
+            android:textSize="12sp"
+            android:textColor="@color/termix_text_primary"
+            android:background="@drawable/bg_key_btn"
+            android:layout_marginEnd="8dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
+
+        <Button
+            android:id="@+id/btn_dialog_root_grant"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:text="Grant Root"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#121517"
+            android:background="@drawable/bg_run_btn"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Termix</string>
+    <string name="subtitle">Native Android Terminal</string>
+    <string name="action_execute">Run</string>
+    <string name="action_clear">Clear</string>
+    <string name="action_new_session">New Session</string>
+    <string name="action_close_session">Close Session</string>
+    <string name="action_settings">Environment</string>
+    <string name="action_about">About</string>
+    <string name="action_root_info">Root Info</string>
+    <string name="prompt_default">$ </string>
+    <string name="prompt_root"># </string>
+    <string name="input_hint">Enter command (e.g. ls, pwd, uname -a)...</string>
+</resources>
